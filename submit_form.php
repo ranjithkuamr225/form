@@ -1,35 +1,27 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Default username for XAMPP
-$password = "";     // Default password is empty
-$dbname = "student_db1"; // Name of the database
+// Check if form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $course_type = $_POST['course_type'];
+    $course = $_POST['course'];
+    $year = $_POST['year'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // Display retrieved data (for debugging purposes)
+    echo "<h1>Form Data Received</h1>";
+    echo "<p><strong>Full Name:</strong> $name</p>";
+    echo "<p><strong>Email:</strong> $email</p>";
+    echo "<p><strong>Course Type:</strong> $course_type</p>";
+    echo "<p><strong>Course:</strong> $course</p>";
+    echo "<p><strong>Year of Study:</strong> $year</p>";
+    echo "<p><strong>Date of Birth:</strong> $dob</p>";
+    echo "<p><strong>Gender:</strong> $gender</p>";
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$course_type = $_POST['course_type'];
-$course = $_POST['course']; // Will be either B.Tech or Degree course
-$year = $_POST['year'];
-$dob = $_POST['dob'];
-$gender = $_POST['gender'];
-
-// Insert data into the database
-$sql = "INSERT INTO students (name, email, course_type, course, year, dob, gender)
-        VALUES ('$name', '$email', '$course_type', '$course', '$year', '$dob', '$gender')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Registration successful!";
+    // Here you can add code to insert data into the database or process it further
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "No data submitted.";
 }
-
-$conn->close();
 ?>
