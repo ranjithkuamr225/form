@@ -5,24 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function showCourses() {
-            var courseType = document.getElementById("course_type").value;
-            var btechCourses = document.getElementById("btech_courses");
-            var degreeCourses = document.getElementById("degree_courses");
-
-            if (courseType === "btech") {
-                btechCourses.style.display = "block";
-                degreeCourses.style.display = "none";
-            } else if (courseType === "degree") {
-                degreeCourses.style.display = "block";
-                btechCourses.style.display = "none";
-            } else {
-                btechCourses.style.display = "none";
-                degreeCourses.style.display = "none";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="form-container">
@@ -81,5 +63,23 @@
             <input type="submit" value="Submit">
         </form>
     </div>
+    <script>
+        function showCourses() {
+            var courseType = document.getElementById("course_type").value;
+            var btechCourses = document.getElementById("btech_courses");
+            var degreeCourses = document.getElementById("degree_courses");
+
+            if (courseType === "btech") {
+                btechCourses.style.display = "block";
+                degreeCourses.style.display = "none";
+            } else if (courseType === "degree") {
+                degreeCourses.style.display = "block";
+                btechCourses.style.display = "none";
+            } else {
+                btechCourses.style.display = "none";
+                degreeCourses.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
